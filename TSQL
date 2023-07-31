@@ -1,0 +1,132 @@
+--This is the configuration for the database that is required for the API.
+
+
+-- Create the database if it does not exist
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'UserDB')
+    CREATE DATABASE UserDB;
+GO
+
+-- Use the UserDB database
+USE UserDB;
+GO
+
+-- Create the User table if it does not exist
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'User')
+    CREATE TABLE dbo.[User]
+    (
+        IdUser INT PRIMARY KEY IDENTITY(1,1),
+        IC NVARCHAR(60),
+        Name NVARCHAR(60),
+        Phone NVARCHAR(60),
+        Email NVARCHAR(60),
+        City NVARCHAR(60),
+        RegitrationDate DATETIME DEFAULT GETDATE()
+    );
+GO
+
+-- Insert records into the User table
+SET IDENTITY_INSERT dbo.[User] ON;
+
+INSERT INTO dbo.[User] (IdUser, IC, Name, Fhone, Email, City)
+VALUES (1, N'32504112', N'Reina', N'691467998', N'blandit.mattis@eratvolutpat.edu', N'Rae Lakes'),
+       (2, N'20427780', N'Maria', N'270411411', N'interdum@Hotmail.com', N'Margaryter'),
+       (3, N'47714668', N'Sophia Vegara', N'757428589', N'mattis.semper.dui@nibhPhasellusnulla.net', N'Levin'),
+       (4, N'32493629', N'Rhiannon', N'757799685', N'posuere@Morbinon.edu', N'Hearst'),
+       (5, N'22383970', N'Aubrey', N'711996850', N'odio@arcuVestibulumante.edu', N'Baltasound'),
+       (6, N'32504112', N'Frank', N'690545978', N'FPP@Gmail.com', N'New Jersy');
+
+SET IDENTITY_INSERT dbo.[User] OFF;
+
+GO
+
+USE UserDB;
+
+-- Drop stored procedures if they already exist
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_Registration')
+    DROP PROCEDURE sp_Registration;
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_Edit')
+    DROP PROCEDURE sp_Edit;
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_View')
+    DROP PROCEDURE sp_View;
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_Listing')
+    DROP PROCEDURE sp_Listing;
+GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'sp_Delete')
+    DROP PROCEDURE sp_Delete;
+GO
+
+-- Create stored procedure sp_Registration
+CREATE PROCEDURE sp_Registration
+(
+    @IC varchar(60),
+    @Name varchar(60),
+    @Phone varchar(60),
+    @Email varchar(60),
+    @City varchar(60)
+)
+AS
+BEGIN
+    INSERT INTO [User] (IC, Name, Phone, Email, City)
+    VALUES (@IC, @Name, @Phone, @Email, @City);
+END
+GO
+
+-- Create stored procedure sp_Edit
+CREATE PROCEDURE sp_Edit
+(
+    @IdUser int,
+    @IC varchar(60),
+    @Name varchar(60),
+    @Phone varchar(60),
+    @Email varchar(60),
+    @City varchar(60)
+)
+AS
+BEGIN
+    UPDATE [User] SET 
+    IC = @IC,
+    Name = @Name,
+    Phone = @Phone,
+    Email = @Email,
+    City = @City
+    WHERE IdUser = @IdUser;
+END
+GO
+
+-- Create stored procedure sp_View
+CREATE PROCEDURE sp_View
+(
+    @IdUser int
+)
+AS
+BEGIN
+    SELECT * FROM [User] WHERE IdUser = @IdUser;
+END
+GO
+
+-- Create stored procedure sp_Listing
+CREATE PROCEDURE sp_Listing
+AS
+BEGIN
+    SELECT * FROM [User];
+END
+GO
+
+-- Create stored procedure sp_Delete
+CREATE PROCEDURE sp_Delete
+(
+    @IdUser int
+)
+AS
+BEGIN
+    DELETE FROM [User] WHERE IdUser = @IdUser;
+END;
+
+
