@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("WebAPIWithTSQL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Polizei Hamburg")]
+[assembly: AssemblyCompany("Dofp79")]
 [assembly: AssemblyProduct("WebAPIWithTSQL")]
-[assembly: AssemblyCopyright("Copyright © Polizei Hamburg 2023")]
+[assembly: AssemblyCopyright("Copyright © Dofp79 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
