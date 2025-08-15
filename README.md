@@ -21,6 +21,7 @@ Helpers: $.urlParam() extrahiert Query‑Parameter (z. B. ?id=...)
 GitHub
 
 🔷 Projektstruktur 🔷
+
 WebForAPI/
 ├─ Start.html          # Liste (View, Edit, Delete, Create)
 ├─ Registration.html   # Formular (Create/Update)
