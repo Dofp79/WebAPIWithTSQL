@@ -28,11 +28,15 @@ WebForAPI/
 └─ README.md
 
 
-📫 Kontakt
+________________________________________
+## 📫 Kontakt
 
-Fragen oder Feedback?
-Doniman F. Peña Parra
+Fragen oder Feedback?  
+**Doniman F. Peña Parra**
 
-🔗 LinkedIn: https://www.linkedin.com/in/doniman-francisco-pe%C3%B1a-parra-609263232/
+- 🌐 [GPT-Link zur Projektunterstützung]([https://chatgpt.com/g/g-vlwmxompx-python-zauberer](https://chatgpt.com/g/g-67f9029e82fc819188dd714659be51ae-html-manager?model=gpt-4o)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/doniman-francisco-pe%C3%B1a-parra-609263232/)
+- ✉️ E-Mail: [dofp79@hotmail.com](mailto:dofp79@hotmail.com)
 
-✉️ E‑Mail: dofp79@hotmail.com
+________________________________________
+
